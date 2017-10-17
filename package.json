@@ -17,7 +17,13 @@
     "web-fonts",
     "font"
   ],
-  "author": "Zach Leatherman",
+  "author": {
+    "name": "Zach Leatherman",
+    "email": "zachleatherman@gmail.com",
+    "twitter": "zachleat",
+    "github": "zachleat",
+    "url": "https://zachleat.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/zachleat/postcss-foft-classes/issues"
