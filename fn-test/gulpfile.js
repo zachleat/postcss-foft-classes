@@ -10,18 +10,15 @@ gulp.task("default", function() {
 				foftLoadedClasses({
 					groups: [
 						{
-							family: "Lato",
-							foftFamily: "LatoFoft",
+							families: ["LatoInitial", "Lato"],
 							classNames: ["fonts-loaded", "fonts-loaded-2"]
 						},
 						{
-							family: "Mija",
-							foftFamily: "MijaFoft",
+							families: ["MijaInitial", "Mija"],
 							classNames: ["fonts-loaded", "fonts-loaded-2"]
 						},
 						{
-							family: "Elena",
-							foftFamily: "ElenaFoft",
+							families: ["ElenaInitial", "Elena"],
 							classNames: ["fonts-loaded", "fonts-loaded-2"]
 						}
 					]

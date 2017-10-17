@@ -13,20 +13,22 @@ module.exports = postcss.plugin("foft-classes", options => {
       rule.walkDecls(decl => {
         if (decl.prop === "font-family") {
           options.groups.forEach(group => {
+            let stage1Family = group.families[0] || group.family;
+            let stage2Family = group.families[1] || group.foftFamily;
             if (
-              isFamilyMatch(decl.value, group.family) ||
-              isFamilyMatch(decl.value, group.foftFamily)
+              isFamilyMatch(decl.value, stage1Family) ||
+              isFamilyMatch(decl.value, stage2Family)
             ) {
               rule.removeChild(decl);
               rule.append({
                 prop: "font-family",
-                value: removeFamily(decl.value, [group.family, group.foftFamily])
+                value: removeFamily(decl.value, [stage1Family, stage2Family])
               });
 
               insertions.push({
                 rule: rule,
-                stage1: { prop: "font-family", value: group.family },
-                stage2: { prop: "font-family", value: group.foftFamily + ", " + group.family },
+                stage1: { prop: "font-family", value: stage1Family },
+                stage2: { prop: "font-family", value: stage2Family },
                 classNames: group.classNames
               });
             }
