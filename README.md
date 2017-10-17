@@ -12,8 +12,7 @@ A postcss plugin to automatically add classes for the [FOFT font loading strateg
     foftLoadedClasses({
       groups: [
         {
-          family: "Lato",
-          foftFamily: "LatoFoft",
+          families: ["LatoInitial", "Lato"],
           classNames: ["fonts-loaded", "fonts-loaded-2"]
         }
       ]
@@ -27,28 +26,32 @@ A postcss plugin to automatically add classes for the [FOFT font loading strateg
 ```
 /* Stage 1 */
 @font-face {
-  font-family: Lato;
+  font-family: LatoInitial;
   src: …
 }
 
 /* Stage 2 */
 @font-face {
-  font-family: LatoFoft;
-  src: …
+  font-family: Lato;
+  src: … /* Same source as Stage 1 LatoInitial */ 
+}
+@font-face {
+  font-family: Lato;
   font-weight: 700;
+  src: …
 }
 
 @font-face {
-  font-family: LatoFoft;
-  src: …
+  font-family: Lato;
   font-style: italic;
+  src: …
 }
 
 @font-face {
-  font-family: LatoFoft;
-  src: …
+  font-family: Lato;
   font-weight: 700;
   font-style: italic;
+  src: …
 }
 ```
 
@@ -56,7 +59,7 @@ A postcss plugin to automatically add classes for the [FOFT font loading strateg
 
 ```
 body {
-  font-family: LatoFoft, Lato, sans-serif;
+  font-family: Lato, sans-serif;
 }
 ```
 
@@ -68,10 +71,10 @@ body {
 }
 
 .fonts-loaded body {
-  font-family: Lato;
+  font-family: LatoInitial;
 }
 
 .fonts-loaded-2 body {
-  font-family: LatoFoft, Lato;
+  font-family: Lato;
 }
 ```
