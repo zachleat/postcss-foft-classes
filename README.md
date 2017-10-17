@@ -1,6 +1,6 @@
 # postcss-foft-classes
 
-A postcss plugin to automatically add classes for the FOFT font loading strategy. Based on [`netlify/postcss-fout-with-a-class`](https://github.com/netlify/postcss-fout-with-a-class).
+A postcss plugin to automatically add classes for the [FOFT font loading strategy](https://www.zachleat.com/web/comprehensive-webfonts/#foft). Based on [`netlify/postcss-fout-with-a-class`](https://github.com/netlify/postcss-fout-with-a-class).
 
 ## Sample
 
