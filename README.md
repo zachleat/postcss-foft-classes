@@ -2,19 +2,17 @@
 
 A postcss plugin to automatically add classes for various [font loading strategies](https://www.zachleat.com/web/comprehensive-webfonts/). Based heavily on [`netlify/postcss-fout-with-a-class`](https://github.com/netlify/postcss-fout-with-a-class).
 
+Documentation currently only has Gulp config examples but is open to contributions with other build tool configurations! This works anywhere postcss does.
+
 ## Installation
 
 `npm install postcss-foft-classes`
 
-## Sample
-
-Open to contributions with other build tool configurations! This works anywhere postcss does.
-
-### FOUT, Single Stage
+## Sample: FOUT, Single Stage
 
 See the [full FOUT with a Class example code](https://github.com/zachleat/web-font-loading-recipes/blob/master/fout-with-class.html), with font faces and the JavaScript code that goes with it.
 
-#### Gulp Config
+### Gulp Config
 
 ```
 .pipe(
@@ -31,7 +29,7 @@ See the [full FOUT with a Class example code](https://github.com/zachleat/web-fo
 )
 ```
 
-#### Input CSS
+### Input CSS
 
 ```
 body {
@@ -39,7 +37,7 @@ body {
 }
 ```
 
-#### Output CSS
+### Output CSS
 
 ```
 body {
@@ -51,11 +49,11 @@ body {
 }
 ```
 
-### FOFT, Two Stages
+## Sample: FOFT, Two Stages
 
 See the [full FOFT example code](https://github.com/zachleat/web-font-loading-recipes/blob/master/foft.html), with font faces and the JavaScript code that goes with it.
 
-#### Gulp Config
+### Gulp Config
 
 ```
 .pipe(
@@ -72,7 +70,7 @@ See the [full FOFT example code](https://github.com/zachleat/web-font-loading-re
 )
 ```
 
-#### Input CSS
+### Input CSS
 
 ```
 body {
@@ -80,7 +78,7 @@ body {
 }
 ```
 
-#### Output CSS
+### Output CSS
 
 ```
 body {
