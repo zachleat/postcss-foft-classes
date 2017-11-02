@@ -2,7 +2,13 @@
 
 A postcss plugin to automatically add classes for various [font loading strategies](https://www.zachleat.com/web/comprehensive-webfonts/). Based heavily on [`netlify/postcss-fout-with-a-class`](https://github.com/netlify/postcss-fout-with-a-class).
 
+## Installation
+
+`npm install postcss-foft-classes`
+
 ## Sample
+
+Open to contributions with other build tool configurations! This works anywhere postcss does.
 
 ### Gulp Config
 
