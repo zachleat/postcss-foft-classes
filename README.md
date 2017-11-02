@@ -10,9 +10,11 @@ A postcss plugin to automatically add classes for various [font loading strategi
 
 Open to contributions with other build tool configurations! This works anywhere postcss does.
 
-### Gulp Config
+### FOUT, Single Stage
 
-#### FOUT, Single Stage
+See the [full FOUT with a Class example code](https://github.com/zachleat/web-font-loading-recipes/blob/master/fout-with-class.html), with font faces and the JavaScript code that goes with it.
+
+#### Gulp Config
 
 ```
 .pipe(
@@ -29,7 +31,31 @@ Open to contributions with other build tool configurations! This works anywhere 
 )
 ```
 
-#### FOFT, Two Stages
+#### Input CSS
+
+```
+body {
+  font-family: Lato, sans-serif;
+}
+```
+
+#### Output CSS
+
+```
+body {
+  font-family: sans-serif;
+}
+
+.fonts-loaded body {
+  font-family: Lato;
+}
+```
+
+### FOFT, Two Stages
+
+See the [full FOFT example code](https://github.com/zachleat/web-font-loading-recipes/blob/master/foft.html), with font faces and the JavaScript code that goes with it.
+
+#### Gulp Config
 
 ```
 .pipe(
@@ -46,37 +72,7 @@ Open to contributions with other build tool configurations! This works anywhere 
 )
 ```
 
-### Sample @font-faces
-
-```
-/* Stage 1 */
-@font-face {
-  font-family: LatoInitial;
-}
-
-/* Stage 2 */
-@font-face {
-  font-family: Lato;
-  /* Same `src` as Stage 1 LatoInitial */ 
-}
-@font-face {
-  font-family: Lato;
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: Lato;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: Lato;
-  font-weight: 700;
-  font-style: italic;
-}
-```
-
-### Input CSS
+#### Input CSS
 
 ```
 body {
@@ -84,21 +80,7 @@ body {
 }
 ```
 
-### Output CSS
-
-#### FOUT, Single Stage
-
-```
-body {
-  font-family: sans-serif;
-}
-
-.fonts-loaded body {
-  font-family: Lato;
-}
-```
-
-#### FOFT, Two Stages
+#### Output CSS
 
 ```
 body {
