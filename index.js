@@ -7,30 +7,45 @@ module.exports = postcss.plugin("foft-classes", options => {
     options = options || {};
     options.groups = options.groups || [];
 
-    const insertions = [];
+    let insertions = [];
 
     css.walkRules(rule => {
       rule.walkDecls(decl => {
         if (decl.prop === "font-family") {
           options.groups.forEach(group => {
-            let stage1Family = group.families[0] || group.family;
-            let stage2Family = group.families[1] || group.foftFamily;
-            if (
-              isFamilyMatch(decl.value, stage1Family) ||
-              isFamilyMatch(decl.value, stage2Family)
-            ) {
+            var families = group.families || [];
+            if( !families.length ) {
+              if( group.family ) {
+                families.push( group.family );
+              }
+              if( group.foftFamily ) {
+                families.push( group.foftFamily );
+              }
+            }
+
+            if( families.reduce((sum, family) => {
+              return isFamilyMatch(decl.value, family) ? 1 : 0
+            }, 0) > 0 ) {
               rule.removeChild(decl);
               rule.append({
                 prop: "font-family",
-                value: removeFamily(decl.value, [stage1Family, stage2Family])
+                value: removeFamily(decl.value, families)
               });
 
-              insertions.push({
+              let insert = {
                 rule: rule,
-                stage1: { prop: "font-family", value: stage1Family },
-                stage2: { prop: "font-family", value: stage2Family },
-                classNames: group.classNames
+                classNames: group.classNames,
+                stages: []
+              };
+
+              families.forEach(family => {
+                insert.stages.push({
+                  prop: "font-family",
+                  value: family
+                });
               });
+
+              insertions.push(insert);
             }
           });
         }
@@ -49,15 +64,15 @@ module.exports = postcss.plugin("foft-classes", options => {
       });
     }
 
-    insertions.forEach(({ rule, stage1, stage2, classNames }) => {
-      let newRuleStage1 = getRule(rule, classNames[0]);
-      newRuleStage1.append(stage1);
+    insertions.forEach(({ rule, stages, classNames }) => {
+      let lastRule = rule;
+      stages.forEach((stage, j) => {
+        let newRule = getRule(rule, classNames[j]);
+        newRule.append(stage);
 
-      let newRuleStage2 = getRule(rule, classNames[1]);
-      newRuleStage2.append(stage2);
-
-      rule.parent.insertAfter(rule, newRuleStage2);
-      rule.parent.insertAfter(rule, newRuleStage1);
+        lastRule.parent.insertAfter(lastRule, newRule);
+        lastRule = newRule;
+      });
     });
   };
 });

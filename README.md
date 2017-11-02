@@ -1,10 +1,29 @@
 # postcss-foft-classes
 
-A postcss plugin to automatically add classes for the [FOFT font loading strategy](https://www.zachleat.com/web/comprehensive-webfonts/#foft). Based on [`netlify/postcss-fout-with-a-class`](https://github.com/netlify/postcss-fout-with-a-class).
+A postcss plugin to automatically add classes for various [font loading strategies](https://www.zachleat.com/web/comprehensive-webfonts/). Based heavily on [`netlify/postcss-fout-with-a-class`](https://github.com/netlify/postcss-fout-with-a-class).
 
 ## Sample
 
 ### Gulp Config
+
+#### FOUT, Single Stage
+
+```
+.pipe(
+  postcss([
+    foftLoadedClasses({
+      groups: [
+        {
+          families: ["Lato"],
+          classNames: ["fonts-loaded"]
+        }
+      ]
+    })
+  ])
+)
+```
+
+#### FOFT, Two Stages
 
 ```
 .pipe(
@@ -21,37 +40,33 @@ A postcss plugin to automatically add classes for the [FOFT font loading strateg
 )
 ```
 
-### Sample @font-face
+### Sample @font-faces
 
 ```
 /* Stage 1 */
 @font-face {
   font-family: LatoInitial;
-  src: …
 }
 
 /* Stage 2 */
 @font-face {
   font-family: Lato;
-  src: … /* Same source as Stage 1 LatoInitial */ 
+  /* Same `src` as Stage 1 LatoInitial */ 
 }
 @font-face {
   font-family: Lato;
   font-weight: 700;
-  src: …
 }
 
 @font-face {
   font-family: Lato;
   font-style: italic;
-  src: …
 }
 
 @font-face {
   font-family: Lato;
   font-weight: 700;
   font-style: italic;
-  src: …
 }
 ```
 
@@ -64,6 +79,20 @@ body {
 ```
 
 ### Output CSS
+
+#### FOUT, Single Stage
+
+```
+body {
+  font-family: sans-serif;
+}
+
+.fonts-loaded body {
+  font-family: Lato;
+}
+```
+
+#### FOFT, Two Stages
 
 ```
 body {
