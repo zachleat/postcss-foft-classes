@@ -12,12 +12,11 @@ Documentation currently only has Gulp config examples but is open to contributio
 
 See the [full FOUT with a Class example code](https://github.com/zachleat/web-font-loading-recipes/blob/master/fout-with-class.html), with font faces and the JavaScript code that goes with it.
 
-
 ### Gulp Config
 
 See this working in `./gulp-test/`.
 
-```
+```js
 .pipe(
   postcss([
     foftLoadedClasses({
@@ -34,7 +33,7 @@ See this working in `./gulp-test/`.
 
 ### Input CSS
 
-```
+```css
 body {
   font-family: Lato, sans-serif;
 }
@@ -42,7 +41,7 @@ body {
 
 ### Output CSS
 
-```
+```css
 body {
   font-family: sans-serif;
 }
@@ -60,7 +59,7 @@ See the [full FOFT example code](https://github.com/zachleat/web-font-loading-re
 
 See this working in `./gulp-test/`.
 
-```
+```js
 .pipe(
   postcss([
     foftLoadedClasses({
@@ -77,7 +76,7 @@ See this working in `./gulp-test/`.
 
 ### Input CSS
 
-```
+```css
 body {
   font-family: Lato, sans-serif;
 }
@@ -85,7 +84,7 @@ body {
 
 ### Output CSS
 
-```
+```css
 body {
   font-family: sans-serif;
 }
