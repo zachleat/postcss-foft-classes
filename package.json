@@ -1,6 +1,6 @@
 {
   "name": "postcss-foft-classes",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A postcss plugin to automatically add classes for the FOFT font loading strategy.",
   "main": "index.js",
   "scripts": {
