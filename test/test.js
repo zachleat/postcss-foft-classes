@@ -4,6 +4,7 @@ import fontFamilyCleanup from "../src/fontFamilyCleanup";
 import isFontFamilyMatch from "../src/isFontFamilyMatch";
 import hasFamily from "../src/hasAnyWebFontFamily";
 import removeFamily from "../src/removeFontFamily";
+import modifySelector from "../src/modifySelector";
 
 test("strip quotes", t => {
 	t.is(stripQuotes("Elena"), "Elena");
@@ -59,4 +60,11 @@ test("remove multiple families", t => {
 	t.is( removeFamily( "Elena, sans-serif", [ "Elena", "sans-serif" ] ), "" );
 	t.is( removeFamily( "Elena, Mija, sans-serif", [ "Elena", "Mija" ] ), "sans-serif" );
 	t.is( removeFamily( "Lato, Elena, Mija, sans-serif", [ "Elena", "Mija", "sans-serif" ] ), "Lato" );
+});
+
+test("modify selector", t => {
+	t.is( modifySelector("html", "fonts-loaded"), "html.fonts-loaded" );
+	t.is( modifySelector("body", "fonts-loaded"), ".fonts-loaded body" );
+	t.is( modifySelector("html", "fonts-loaded no-js"), "html.fonts-loaded,html.no-js" );
+	t.is( modifySelector("body", "fonts-loaded no-js"), ".fonts-loaded body,.no-js body" );
 });

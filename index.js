@@ -1,6 +1,7 @@
 const postcss = require("postcss");
 const isFamilyMatch = require("./src/isFontFamilyMatch");
 const removeFamily = require("./src/removeFontFamily");
+const modifySelector = require("./src/modifySelector");
 
 module.exports = postcss.plugin("foft-classes", options => {
   return css => {
@@ -54,13 +55,7 @@ module.exports = postcss.plugin("foft-classes", options => {
 
     function getRule(rule, className) {
       return postcss.rule({
-        selector: rule.selector
-          .split(",")
-          .map(
-            part =>
-              part.toLowerCase().trim() === "html" ? `html.${className}` : `.${className} ${part}`
-          )
-          .join(",")
+        selector: modifySelector( rule.selector, className )
       });
     }
 
