@@ -40,10 +40,10 @@ module.exports = postcss.plugin("foft-classes", options => {
               };
 
               families.forEach(family => {
-                insert.stages.push({
+                insert.stages.push( decl.clone({
                   prop: "font-family",
                   value: family
-                });
+                }) );
               });
 
               insertions.push(insert);
@@ -55,7 +55,8 @@ module.exports = postcss.plugin("foft-classes", options => {
 
     function getRule(rule, className) {
       return postcss.rule({
-        selector: modifySelector( rule.selector, className )
+        selector: modifySelector( rule.selector, className ),
+        source: rule.source
       });
     }
 
