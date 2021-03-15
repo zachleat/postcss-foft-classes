@@ -11,6 +11,11 @@
     "type": "git",
     "url": "git+https://github.com/zachleat/postcss-foft-classes.git"
   },
+  "ava": {
+    "require": [
+      "esm"
+    ]
+  },
   "keywords": [
     "postcss",
     "foft",
@@ -30,8 +35,15 @@
   },
   "homepage": "https://github.com/zachleat/postcss-foft-classes#readme",
   "devDependencies": {
-    "ava": "^0.22.0",
-    "gulp": "^3.9.1",
-    "gulp-postcss": "^7.0.0"
+    "ava": "^3.15.0",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.0",
+    "postcss": "^8.2.8"
+  },
+  "peerDependencies": {
+    "postcss": "^8.2.8"
+  },
+  "dependencies": {
+    "esm": "^3.2.25"
   }
 }
