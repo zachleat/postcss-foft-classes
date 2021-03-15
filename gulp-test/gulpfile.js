@@ -28,6 +28,6 @@ gulp.task("add-font-loading-classes", function() {
 		.pipe(gulp.dest("build/"));
 });
 
-gulp.task("default", [ 'add-font-loading-classes' ], function() {
-	
+gulp.task("default", gulp.series('add-font-loading-classes'), function() {
+
 });
