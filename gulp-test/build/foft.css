@@ -1,27 +1,27 @@
 body {
-    font-family: sans-serif;
+  font-family: sans-serif;
 }
 .fonts-loaded body {
-    font-family: LatoInitial;
+  font-family: LatoInitial;
 }
 .fonts-loaded-2 body {
-    font-family: Lato;
+  font-family: Lato;
 }
 h1 {
-    font-family: AvenirNext, Roboto Slab, Droid Serif, BlinkMacSystemFont, -apple-system, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: AvenirNext, Roboto Slab, Droid Serif, BlinkMacSystemFont, -apple-system, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 .fonts-loaded h1 {
-    font-family: Mija;
+	font-family: Mija;
 }
 h2 {
-    font-family: Roboto, Fira Sans, Segoe UI, Oxygen-Sans, Georgia, serif;
+  font-family: Roboto, Fira Sans, Segoe UI, Oxygen-Sans, Georgia, serif;
 }
 .fonts-loaded h2 {
-    font-family: ElenaWhatIsHappening;
+	font-family: ElenaWhatIsHappening;
 }
 .fonts-loaded-2 h2 {
-    font-family: ElenaInitial;
+	font-family: ElenaInitial;
 }
 .fonts-loaded-3 h2 {
-    font-family: Elena;
+	font-family: Elena;
 }
