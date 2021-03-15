@@ -37,7 +37,11 @@
   "devDependencies": {
     "ava": "^3.15.0",
     "gulp": "^4.0.2",
-    "gulp-postcss": "^9.0.0"
+    "gulp-postcss": "^9.0.0",
+    "postcss": "^8.2.8"
+  },
+  "peerDependencies": {
+    "postcss": "^8.2.8"
   },
   "dependencies": {
     "esm": "^3.2.25"
